@@ -48,43 +48,38 @@ export class OrdersComponent extends BaseComponent implements OnInit {
   }
 
   exportOrder() {
-    var mywindow = window.open('', 'my div', 'height=400,width=600');
-        mywindow?.document.write('<html><head><title>my div</title>');
-        /*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
-        mywindow?.document.write('</head><body >');
-        mywindow?.document.write(`<table style= class="table table-bordered">
-        <caption>List of users</caption>
+    var mywindow = window.open('', 'my div', 'height=800,width=600');
+    mywindow?.document.write('<html><head><title>my div</title>');
+    mywindow?.document.write('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">');
+    mywindow?.document.write('</head><body >');
+    mywindow?.document.write('<h2 style="font-weight:bold;text-align:center">DANH SÁCH HÓA ĐƠN</h2>');
+    mywindow?.document.write(
+      `<table style="width:100%" class="table table-bordered">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Ngày tạo</th>
+            <th scope="col">Trạng thái</th>
+            <th scope="col">Người nhận</th>
+            <th scope="col">Địa chỉ</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody>`);
+    for (let i = 0; i <= this.orderByAccount.length; i++) {
+      mywindow?.document.write(`
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <th scope="row">`+ (i+1) + `</th>
+            <td style="text-align:center">`+ this.orderByAccount[i]?.created_at + `</td>
+            <td style="text-align:center">`+ (this.orderByAccount[i]?.status == 1 ? 'Đang vận chuyển' : 'Đã huỷ') + `</td>
+            <td style="text-align:center">`+ this.orderByAccount[i]?.full_name + `</td>
+            <td style="text-align:center">`+ this.orderByAccount[i]?.address + `</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>`);
-        mywindow?.document.write('</body></html>');
-        mywindow?.print();
-        mywindow?.close();
+          `);
+    }
+    (`</tbody></table>`);
+    mywindow?.document.write()
+    mywindow?.document.write('</body></html>');
+    mywindow?.print();
+    mywindow?.close();
   }
 }

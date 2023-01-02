@@ -16,6 +16,7 @@ import { RoleService } from 'src/app/services/role.service';
 import { DiscountService } from 'src/app/services/discount.service';
 import { AccountService } from 'src/app/services/account.service';
 import { ExcelServicesService } from 'src/app/services/excel.service';
+import { BlogService } from 'src/app/services/blog.service';
 
 const formatDate = (date: string | number | Date) => {
   var d = new Date(date),
@@ -77,7 +78,8 @@ export class BaseComponent {
     public roleService: RoleService,
     public discountService: DiscountService,
     public accountService: AccountService,
-    public excelService: ExcelServicesService
+    public excelService: ExcelServicesService,
+    public blogService: BlogService
   ) { }
 
   listCate: any = [];
@@ -90,6 +92,7 @@ export class BaseComponent {
   listRole: any = [];
   listDiscount: any = [];
   listAccount: any = [];
+  listBlog: any = [];
 
   getInfo() {
     var infoUser = localStorage.getItem('UserInfo');
@@ -186,6 +189,14 @@ export class BaseComponent {
       }
     )
   };
+
+  getListBlog = () => {
+    this.blogService.getList().subscribe(
+      (res) => {
+        this.listBlog = res.data;
+      }
+    );
+  }
 
   remove_sign = (str: string) => {
     str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, 'a');

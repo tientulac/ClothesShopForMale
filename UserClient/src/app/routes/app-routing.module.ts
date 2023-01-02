@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BlogDetailComponent } from '../blog-detail/blog-detail.component';
+import { BlogComponent } from '../blog/blog.component';
 import { DataTableComponent } from '../commons/data-table/data-table.component';
 import { BrandComponent } from '../components/brand/brand.component';
 import { CategoryComponent } from '../components/category/category.component';
@@ -15,7 +17,7 @@ const routes: Routes = [
     path: '',
     canActivate: [NonAuthGuard],
     canActivateChild: [NonAuthGuard],
-    component: LoginComponent, 
+    component: LoginComponent,
     data: { preload: true },
     children: [
     ]
@@ -24,36 +26,44 @@ const routes: Routes = [
     path: 'admin',
     canActivate: [NonAuthGuard],
     canActivateChild: [NonAuthGuard],
-    component: ManagementPageComponent, 
+    component: ManagementPageComponent,
     data: { preload: true },
     children: [
       {
         path: 'dashboard',
-        component: DashboardComponent, 
+        component: DashboardComponent,
       },
       {
         path: 'builder',
-        component: DataTableComponent, 
+        component: DataTableComponent,
       },
       {
         path: 'data-table',
-        component: DataTableComponent, 
+        component: DataTableComponent,
       },
       {
         path: 'category',
-        component: CategoryComponent, 
+        component: CategoryComponent,
       },
       {
         path: 'brand',
-        component: BrandComponent, 
+        component: BrandComponent,
       },
       {
         path: 'order',
-        component: OrderComponent, 
+        component: OrderComponent,
       },
       {
         path: 'product',
-        component: ProductComponent, 
+        component: ProductComponent,
+      },
+      {
+        path: 'blog',
+        component: BlogComponent,
+      },
+      {
+        path: 'blog-detail/:id',
+        component: BlogDetailComponent,
       },
     ]
   },

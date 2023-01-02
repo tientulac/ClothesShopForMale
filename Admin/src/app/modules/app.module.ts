@@ -35,6 +35,8 @@ import { DiscountComponent } from '../components/discount/discount.component';
 import { AccountComponent } from '../components/account/account.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { StatisticComponent } from '../components/statistic/statistic.component';
+import { BlogsComponent } from '../components/blogs/blogs.component';
+import { CKEditorModule } from 'ckeditor4-angular';
 
 registerLocaleData(en);
 
@@ -58,7 +60,8 @@ registerLocaleData(en);
     RoleComponent,
     DiscountComponent,
     AccountComponent,
-    StatisticComponent
+    StatisticComponent,
+    BlogsComponent
   ],
   imports: [
     DemoNgZorroAntdModule,
@@ -75,7 +78,8 @@ registerLocaleData(en);
       preventDuplicates: true,
     }),  
     NgxSpinnerModule,
-    Ng2SearchPipeModule 
+    Ng2SearchPipeModule,
+    CKEditorModule,
   ],
   providers: [    
     CookieService,

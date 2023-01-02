@@ -16,6 +16,8 @@ import { AddressComponent } from './address/address.component';
 import { EditAddressComponent } from './edit-address/edit-address.component';
 import { AllProductComponent } from './shop/all-product/all-product.component';
 import { FindByImageComponent } from './components/find-by-image/find-by-image.component';
+import { BlogComponent } from './blog/blog.component';
+import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 
 const routes: Routes = [
   {path:"", component:HomeComponent},
@@ -33,6 +35,8 @@ const routes: Routes = [
   {path:"edit-address", component:EditAddressComponent},
   {path:"all-product", component:AllProductComponent},
   {path:"find-by-image", component:FindByImageComponent},
+  {path:"blog", component:BlogComponent},
+  {path:"blog-detail/:id", component:BlogDetailComponent},
 ];
 
 @NgModule({

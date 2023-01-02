@@ -14,6 +14,8 @@ import { AccService } from 'src/app/services/acc.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { CommentService } from 'src/app/services/comment.service';
+import { BlogComponent } from 'src/app/blog/blog.component';
+import { BlogService } from 'src/app/services/blog.service';
 
 const formatDate = (date: string | number | Date) => {
   var d = new Date(date),
@@ -92,7 +94,8 @@ export class BaseComponent {
     public toastr: ToastrService,
     public modalService: NgbModal,
     public Acc: AccService,
-    public commentService: CommentService
+    public commentService: CommentService,
+    public blogService: BlogService
   ) { }
 
   listCate: any = [];
@@ -103,6 +106,7 @@ export class BaseComponent {
   listDetail: any = [];
   listColor: any = [];
   listImageFilter: any = [];
+  listBlog: any = [];
   
   dissmissModal(){
     this.modalService.dismissAll('');
@@ -206,6 +210,14 @@ export class BaseComponent {
       }
     )
   };
+
+  getListBlog = () => {
+    this.blogService.getList().subscribe(
+      (res) => {
+        this.listBlog = res.data;
+      }
+    );
+  }
 
   remove_sign = (str: string) => {
     str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, 'a');

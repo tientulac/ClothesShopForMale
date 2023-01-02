@@ -31,6 +31,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommentComponent } from './comment/comment.component';
+import { BlogComponent } from './blog/blog.component';
+import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { CommentComponent } from './comment/comment.component';
     AllProductComponent,
     FindByImageComponent,
     CommentComponent,
+    BlogComponent,
+    BlogDetailComponent,
   ],
   imports: [
     BrowserModule,
