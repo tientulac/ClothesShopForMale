@@ -193,8 +193,12 @@
                   <form action="#">
                     <div class="starrr"></div>
                     <div class="form-group">
-                      <input type="number" min="1" max="5" class="form-control" [(ngModel)]="star" [ngModelOptions]="{standalone: true}" placeholder="Số sao đánh giá (Max là 5*)">
-                    </div>
+                      <ul class="list-inline rating-list" *ngFor="let star of stars; let i= index">
+                        <li (click)="countStar(star)" [ngClass]="{'selected': (star <= selectedValue)}"
+                          (mouseover)="addClass(star)" (mouseout)="removeClass()"> <span
+                            class="material-icons"><i class="fa fa-star"></i></span>
+                        </li>
+                      </ul>                     </div>
                     <div class="form-group">
                       <textarea name="comment" id="comment" class="form-control" cols="30"  [(ngModel)]="comment" [ngModelOptions]="{standalone: true}" rows="4" placeholder="Nhận xét"></textarea>
                     </div>

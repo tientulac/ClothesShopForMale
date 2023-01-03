@@ -24,6 +24,27 @@ export class ProductsingleComponent extends BaseComponent implements OnInit {
   star: any;
   accountId: any = 0;
 
+  stars: number[] = [1, 2, 3, 4, 5];
+  selectedValue: number = 0;
+  isMouseover = true;
+
+  countStar(star: number) {
+    this.isMouseover = false;
+    this.selectedValue = star;
+  }
+
+  addClass(star: number) {
+    if (this.isMouseover) {
+      this.selectedValue = star;
+    }
+  }
+
+  removeClass() {
+    if (this.isMouseover) {
+      this.selectedValue = 0;
+    }
+  }
+
   ngOnInit(): void {
     this.getProduct();
     this.getProductImage();
@@ -153,17 +174,18 @@ export class ProductsingleComponent extends BaseComponent implements OnInit {
       this.toastr.warning('Bạn cần đăng nhập để có thể thêm nhận xét !');
     }
     else {
-      if (this.star > 5 || this.star < 1) {
-        this.toastr.warning('Bạn chỉ được nhập số sao từ 1->5 !');
+      if (this.selectedValue > 5 || this.selectedValue < 1) {
+        this.toastr.warning('Bạn hãy chọn số sao từ 1->5 !');
       }
       else {
         var acc_id = JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('UserInfo')))).account_id;
         var req = {
           account_id: acc_id,
           product_id: this.p_id,
-          star: this.star,
-          comment: this.comment,
+          star: this.selectedValue,
+          comment1: this.comment,
         }
+        console.log(req);
         this.commentService.save(req).subscribe(
           (res) => {
             if (res) {
