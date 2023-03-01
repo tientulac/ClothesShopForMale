@@ -23,6 +23,7 @@
     "@types/xlsx": "^0.0.36",
     "bootstrap": "^5.2.2",
     "chart.js": "^2.9.4",
+    "ckeditor4-angular": "^3.2.2",
     "file-saver": "^2.0.5",
     "ng-zorro-antd": "^14.1.1",
     "ngx-cookie-service": "^14.0.1",

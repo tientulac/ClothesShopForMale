@@ -96,7 +96,7 @@
         <form class="form-horizontal" [formGroup]="AddForm">
             <div class="row">
                 <div class="col-md-12">
-                    <label class="col-md-10">Tên sản phẩm</label>
+                    <label class="row col-md-10">Tên sản phẩm</label>
                     <input type="text" class="form-control" formControlName="product_name" placeholder="nhập...">
                 </div>
                 <label class="col-md-12">Danh mục</label>
@@ -106,19 +106,18 @@
                 </nz-select>
                 <label class="col-md-12">Thương hiệu</label>
                 <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Chọn thương hiệu" formControlName="brand_id">
-                    <nz-option *ngFor="let c of listBrand" [nzLabel]="c.brand_name" [nzValue]="c.brand_id">
-                        {{c.brand_name}}</nz-option>
+                    <nz-option *ngFor="let c of listBrand" [nzLabel]="c.brand_name" [nzValue]="c.brand_id"></nz-option>
                 </nz-select>
                 <div class="col-md-12">
-                    <label class="col-md-10">Số lượng kho</label>
+                    <label class="row col-md-10">Số lượng kho</label>
                     <input type="number" class="form-control" formControlName="amount" placeholder="nhập...">
                 </div>
                 <div class="col-md-12">
-                    <label class="col-md-10">Xuất xứ</label>
+                    <label class="rowcol-md-10">Xuất xứ</label>
                     <input type="text" class="form-control" formControlName="origin" placeholder="nhập...">
                 </div>
                 <div class="col-md-12">
-                    <label class="col-md-10">Giá tiền</label>
+                    <label class="row col-md-10">Giá tiền</label>
                     <input type="number" class="form-control" formControlName="price" placeholder="nhập...">
                 </div>
                 <label class="col-md-12">Size</label>
@@ -126,6 +125,7 @@
                     [ngModelOptions]="{standalone: true}">
                     <nz-option *ngFor="let option of listOfOption" [nzLabel]="option" [nzValue]="option"></nz-option>
                 </nz-select>
+                <label class="col-md-12">{{sizeUpdate}}</label>
             </div>
         </form>
     </ng-container>

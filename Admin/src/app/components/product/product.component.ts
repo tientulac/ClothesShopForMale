@@ -10,9 +10,10 @@ import { BaseComponent } from '../base/base.component';
 })
 export class ProductComponent extends BaseComponent implements OnInit {
 
-  listOfOption:any = ['S','M','L','XL','XXL'];
+  listOfOption: any = ['S','M','L','XL','XXL'];
   size: NzSelectSizeType = 'default';
   multipleValue = [];
+  sizeUpdate: any = '';
 
   selectedIndex: any;
 
@@ -89,6 +90,7 @@ export class ProductComponent extends BaseComponent implements OnInit {
         price: !dataEdit ? '' : dataEdit.price,
         status: !dataEdit ? 1 : dataEdit.status,
       });
+      this.sizeUpdate = dataEdit.size ?? '';
     }
     else {
       this.AddForm.reset();

@@ -11,9 +11,13 @@
   
 	  <!-- Login Form -->
 	  <form class="form-horizontal" [formGroup]="LoginForm">
-		<input type="text" id="login" class="fadeIn second" formControlName="UserName" placeholder="User name">
-		<input type="text" id="login" class="fadeIn second" formControlName="Password" placeholder="Password">
-		<input type="submit" class="fadeIn fourth" value="Log In" (click)="logIn()">
+		<div class="col-md-12">
+			<input type="text" id="login" style="margin: 0 auto; height: 40px; border-radius: 5px;" class="col-md-6 fadeIn second" formControlName="UserName" placeholder="User name">
+		</div>
+		<div class="col-md-12" style="margin-top: 10px;">
+			<input type="password" id="login" style="margin: 0 auto; height: 40px; border-radius: 5px;" class="col-md-6 fadeIn second" formControlName="Password" placeholder="Password">
+		</div>
+		<input type="submit" class="fadeIn fourth" value="LogIn" (click)="logIn()">
 	  </form>
 	</div>
   </div>

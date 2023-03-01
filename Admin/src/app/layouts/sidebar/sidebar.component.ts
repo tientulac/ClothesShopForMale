@@ -29,7 +29,10 @@ export class SidebarComponent implements OnInit {
 
   showInfoModal(): void {
     this.isDisplay = true;
-    this.titleModal = "Information";
+    this.titleModal = "Cập nhật thông tin cá nhân";
+    this.oldPassword = '';
+    this.newPassword = '';
+    this.confirmPassword = '';
   }
 
   handleCancel(): void {
@@ -53,7 +56,7 @@ export class SidebarComponent implements OnInit {
       return false;
     }
     this.Acc.login(req).subscribe((z) => {
-      if (z) {
+      if (z.status == 200) {
         var req2 = {
           account_id: this.accountInfor.account_id,
           user_name: this.accountInfor.user_name,
@@ -61,18 +64,18 @@ export class SidebarComponent implements OnInit {
           email: this.emailUpdate
         }
         this.Acc.updatePassword(req2).subscribe((res) => {
-          if (res) {
-            this.toastr.success('Update info successfully !');
+          if (res.status == 200) {
+            this.toastr.success('Cập nhật thông tin thành công !');
             this.accountInfor.email = this.emailUpdate;
             localStorage.setItem('UserInfo', JSON.stringify(this.accountInfor));
           }
           else {
-            this.toastr.success('Update info failed !');
+            this.toastr.success('Cập nhật thông tin thất bại !');
           }
         });
       }
       else {
-        this.toastr.warning('User name or password not correctly !');
+        this.toastr.warning('Mật khẩu cũ không đúng !');
       }
     });
     this.isDisplay = false;

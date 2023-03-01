@@ -36,7 +36,7 @@ export class ImageComponent extends BaseComponent implements OnInit {
           this.getListImage();
         }
         else {
-          this.toastr.success('Failed !');
+          this.toastr.warning('Failed !');
         }
       }
     );
